@@ -10,7 +10,7 @@ public class _02_RobotRace {
 	// 1. make a main method
 	public static void main(String[] args) {
 		// 2. create an array of 5 robots.
-		
+
 		Robot[] robs = new Robot[5];
 		// 3. use a for loop to initialize the robots.
 		for (int i = 0; i < robs.length; i++) {
@@ -27,10 +27,10 @@ public class _02_RobotRace {
 		// a random amount less than 50.
 		Random random = new Random();
 		boolean running = true;
-		int winner;
-		int lastRob = 0;
-		lastRob = robs[robs.length-1].getX();
+		boolean canWin = false;
+		int winner;;
 		while (running) {
+			
 			for (int i = 0; i < robs.length; i++) {
 				int rand = random.nextInt(50);
 				robs[i].move(rand);
@@ -42,16 +42,16 @@ public class _02_RobotRace {
 					robs[i].setAngle(180);
 					if (robs[i].getY() + 100 >= 600) {
 						robs[i].setAngle(270);
-						if (robs[i].getX() <= 200) {
-							running = false;
-							winner = i + 1;
-							JOptionPane.showMessageDialog(null,
-									"Robot " + winner + " is thewinner`¡™£¢∞§¶•ªº–≠«‘“πøˆ¨¥†®´∑œåß∂ƒ©˙∆˚¬…æ÷≥≤µ˜∫√ç≈Ω`⁄€‹›ﬁﬂ‡°·‚—±»’”∏Øˆ¨Áˇ‰ŒÅÍÎÏ˝ÓÔÒÚÆ¿˘¯Â˜ı◊Ç");
-						}
+						canWin = true;
 					}
 				}
-				
-			
+				if (robs[i].getX() - 200 <= 100 && canWin == true) {
+					running = false;
+					System.out.println("stopped");
+					winner = i + 1;
+					JOptionPane.showMessageDialog(null, "Robot " + winner+ " is the winner");
+				}
+
 			}
 			// 6. use a while loop to repeat step 5 until a robot has reached the top of the
 			// screen.
