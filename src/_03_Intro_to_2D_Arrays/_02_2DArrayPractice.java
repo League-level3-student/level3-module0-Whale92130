@@ -223,15 +223,22 @@ public class _02_2DArrayPractice {
      *    boundaries, return null.
      */
     public Integer getEastNeighbor(int[][] matrix, int row, int col) {
-    	//start here
-    	//
-    	//
-    	//
     	int total = 0;
-    	total = matrix[row-1][col];
-
+        for (int i = 0; i < matrix.length; i++) {
+			for (int o = 0; o < matrix[matrix.length-1].length; o++) {
+				if(matrix[row][col-1]==matrix[i][o]) {
+					total=matrix[row][col-1];
+					System.out.println("yy" + total);
+				}
+				else {
+			    	
+			    	return null;
+			    	}
+				}
+			}
         return total;
-    }
+        
+     }
     
     public Integer getWestNeighbor(int[][] matrix, int row, int col) {
         
