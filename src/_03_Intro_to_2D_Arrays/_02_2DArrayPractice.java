@@ -61,7 +61,7 @@ public class _02_2DArrayPractice {
 		for (int i = 0; i < test2.length; i++) {
 			for (int o = 0; o < test2[test2.length-1].length; o++) {
 				test2[i][o] = letters[count];
-				System.out.println(test2[i][o]);
+				
 				count++;
 			}
 		}
@@ -223,35 +223,106 @@ public class _02_2DArrayPractice {
      *    boundaries, return null.
      */
     public Integer getEastNeighbor(int[][] matrix, int row, int col) {
+    	System.out.println("East");
     	int total = 0;
-        for (int i = 0; i < matrix.length; i++) {
-			for (int o = 0; o < matrix[matrix.length-1].length; o++) {
-				if(matrix[row][col-1]==matrix[i][o]) {
-					total=matrix[row][col-1];
-					System.out.println("yy" + total);
-				}
-				else {
-			    	
-			    	return null;
-			    	}
-				}
-			}
+    	boolean good = false;
+        if (row <= matrix.length && row >= 0 && col+1 >= 0 && col+1 <= matrix[matrix.length-1].length-1) {
+        	System.out.println(matrix[matrix.length-1].length);
+        	System.out.println("good");
+        	total = matrix[row][col+1];
+        	good = true;
+        }
+        else {
+        	System.out.println("bad");
+        	good = false;
+        }
+        System.out.println(total);
+        System.out.println("");
+        if (good == true) {
         return total;
+        }
+        else {
+        	
+        	return null;
+        }
         
      }
     
     public Integer getWestNeighbor(int[][] matrix, int row, int col) {
+    	System.out.println("West");
+    	int total = 0;
+    	boolean good = false;
+        if (row <= matrix.length && col-1 >= 0 && col-1 <= matrix[matrix.length-1].length-1) {
+        	System.out.println(matrix[matrix.length-1].length);
+        	System.out.println("good");
+        	total = matrix[row][col-1];
+        	good = true;
+        }
+        else {
+        	System.out.println("bad");
+        	good = false;
+        }
+        System.out.println(total);
+        System.out.println("");
+        if (good == true) {
+        return total;
+        }
+        else {
+        	
+        	return null;
+        }
         
-        return null;
+
     }
     
     public Integer getNorthNeighbor(int[][] matrix, int row, int col) {
+    	System.out.println("North");
+    	int total = 0;
+    	boolean good = false;
+        if (row-1 <= matrix.length-1 && row-1 >= 0 && col <= matrix[matrix.length-1].length-1) {
+        	System.out.println(matrix.length);
+        	System.out.println("good");
+        	total = matrix[row-1][col];
+        	good = true;
+        }
+        else {
+        	System.out.println("bad");
+        	good = false;
+        }
+        System.out.println(total);
+        System.out.println("");
+        if (good == true) {
+        return total;
+        }
+        else {
+        	return null;
+        }
         
-        return null;
+
     }
     
     public Integer getSouthNeighbor(int[][] matrix, int row, int col) {
+    	System.out.println("South");
+    	int total = 0;
+    	boolean good = false;
+        if (row+1 <= matrix.length-1 && row+1 >= 0 && col >= 0 && col <= matrix[matrix.length-1].length-1) {
+        	System.out.println("good");
+        	total = matrix[row+1][col];
+        	good = true;
+        }
+        else {
+        	System.out.println("bad");
+        	good = false;
+        }
+        System.out.println(total);
+        System.out.println("");
+        if (good == true) {
+        return total;
+        }
+        else {
+        	return null;
+        }
         
-        return null;
+
     }
 }
